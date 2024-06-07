@@ -61,5 +61,42 @@ summary(table2_4)
 
 # Table 3 -----------------------------------------------------------------
 
+table3_1a <- feols(lexpen_agri ~ I(famineseverity*born4960) + eduyear + male + minor + term + I(eduyear*born4960) + I(male*born4960) + I(minor*born4960) + I(age*born4960) + I(lgdp1998*year) + I(lpopulation1998*year) + I(lexpenditure1998*year) + I(lrevenue1998*year) | county_code + birthyr + age + year + htcode,
+                  data = data_1 %>% filter(countytype==2), 
+                  fixef.rm = "singleton", 
+                  cluster = "htcode")
+summary(table3_1a)
 
+table3_1b <- feols(lexpen_secu ~ I(famineseverity*born4960) + eduyear + male + minor + term + I(eduyear*born4960) + I(male*born4960) + I(minor*born4960) + I(age*born4960) + I(lgdp1998*year) + I(lpopulation1998*year) + I(lexpenditure1998*year) + I(lrevenue1998*year) | county_code + birthyr + age + year + htcode,
+                  data = data_1 %>% filter(countytype==2), 
+                  fixef.rm = "singleton", 
+                  cluster = "htcode", 
+                  collin.tol = 1e-20)
+summary(table3_1b)
+
+table3_2a <- feols(lexpen_agri ~ I(famineseverity*born4960) + eduyear + male + minor + term + I(eduyear*born4960) + I(male*born4960) + I(minor*born4960) + I(age*born4960) + I(lgdp1998*year) + I(lpopulation1998*year) + I(lexpenditure1998*year) + I(lrevenue1998*year) | county_code + birthyr + age + year + htcode,
+                   data = data_1 %>% filter(urbanborn == 0), 
+                   fixef.rm = "singleton", 
+                   cluster = "htcode")
+summary(table3_2a)
+
+table3_2b <- feols(lexpen_secu ~ I(famineseverity*born4960) + eduyear + male + minor + term + I(eduyear*born4960) + I(male*born4960) + I(minor*born4960) + I(age*born4960) + I(lgdp1998*year) + I(lpopulation1998*year) + I(lexpenditure1998*year) + I(lrevenue1998*year) | county_code + birthyr + age + year + htcode,
+                   data = data_1 %>% filter(urbanborn == 0), 
+                   fixef.rm = "singleton", 
+                   cluster = "htcode", 
+                   collin.tol = 1e-20)
+summary(table3_2b)
+
+table3_3a <- feols(lexpen_agri ~ I(famineseverity*born4960) + eduyear + male + minor + term + I(eduyear*born4960) + I(male*born4960) + I(minor*born4960) + I(age*born4960) + I(lgdp1998*year) + I(lpopulation1998*year) + I(lexpenditure1998*year) + I(lrevenue1998*year) | county_code + birthyr + age + year + htcode,
+                   data = data_1 %>% filter(numberworkcounties == 1), 
+                   fixef.rm = "singleton", 
+                   cluster = "htcode")
+summary(table3_3a)
+
+table3_3b <- feols(lexpen_secu ~ I(famineseverity*born4960) + eduyear + male + minor + term + I(eduyear*born4960) + I(male*born4960) + I(minor*born4960) + I(age*born4960) + I(lgdp1998*year) + I(lpopulation1998*year) + I(lexpenditure1998*year) + I(lrevenue1998*year) | county_code + birthyr + age + year + htcode,
+                   data = data_1 %>% filter(numberworkcounties == 1), 
+                   fixef.rm = "singleton", 
+                   cluster = "htcode", 
+                   collin.tol = 1e-20)
+summary(table3_3b)
 
