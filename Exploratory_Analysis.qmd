@@ -1,0 +1,43 @@
+---
+title: "Exploratory Analysis"
+format: html
+---
+
+```{r}
+library(tidyverse)
+```
+
+
+```{r}
+dat <- read.csv("Data for replication.csv")
+dat_b <- read.csv("Data for replication_b.csv")
+dat_c <- read.csv("Data for replication_c.csv")
+dat_d <- read.csv("Data for replication_d.csv")
+dat_e <- read.csv("Data for replication_e.csv")
+dat_f <- read.csv("Data for replication_f.csv")
+```
+
+# Figure 1
+
+```{r}
+dat_c |> 
+  ggplot(aes(x = birthyr)) + 
+  geom_histogram(binwidth = 1)
+```
+
+# Table 1
+
+```{r}
+dat |> 
+  select(!county) |> 
+  pivot_longer(cols = !c(county_code, cps)) |> 
+  group_by(name) |> 
+  filter(!is.na(value)) |> 
+  summarise(mean = mean(value),
+            obs = n())
+```
+
+
+```{r}
+```
+
