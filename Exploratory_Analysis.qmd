@@ -25,6 +25,14 @@ dat_c |>
   geom_histogram(binwidth = 1)
 ```
 
+# Figure 2
+
+```{r}
+dat_b |> 
+  ggplot(aes(x = birthyr, y = csize)) + 
+  geom_col()
+```
+
 # Table 1
 
 ```{r}
