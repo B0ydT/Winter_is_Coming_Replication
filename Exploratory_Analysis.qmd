@@ -5,6 +5,7 @@ format: html
 
 ```{r}
 library(tidyverse)
+library(sf)
 ```
 
 
@@ -35,6 +36,16 @@ dat_b |>
                            TRUE ~ "other")) |> 
   ggplot(aes(x = birthyr, y = csize, fill = stage)) + 
   geom_col()
+```
+
+# Figure 3
+
+```{r}
+fig_3_shp <- st_read("Figure_3/FamineSeverity.shp")
+
+ggplot(fig_3_shp) +
+  geom_sf(aes(fill = shrinkrate)) + 
+  scale_fill_gradient(low = "white", high = "black") #not exactly the same
 ```
 
 # Table 1
