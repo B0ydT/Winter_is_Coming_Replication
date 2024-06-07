@@ -29,7 +29,11 @@ dat_c |>
 
 ```{r}
 dat_b |> 
-  ggplot(aes(x = birthyr, y = csize)) + 
+  mutate(stage = case_when(birthyr %in% c(1956, 1957, 1958) ~ "pre",
+                           birthyr %in% c(1959, 1960, 1961) ~ "famine",
+                           birthyr %in% c(1962, 1963, 1964) ~ "post",
+                           TRUE ~ "other")) |> 
+  ggplot(aes(x = birthyr, y = csize, fill = stage)) + 
   geom_col()
 ```
 
