@@ -1,0 +1,32 @@
+cff-version: 1.2.0
+title: Australian Stingless Bee Nest Microbiome
+message: >-
+  If you use this resource, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Farida
+    family-names: Akhtar
+    email: farida.akhtar@mq.edu.au
+    affiliation: >-
+      Macquarie University
+  - given-names: David
+    family-names: Kreitmeir
+    email: david.kreitmeir1@monash.edu
+    affiliation: >-
+      Monash University
+  - given-names: Luke
+    family-names: Newman
+    email: luke.newman1@monash.edu
+    affiliation: >-
+      Monash University
+  - given-names: Florian
+    family-names: Ploeckl
+    email: florian.ploeckl@adelaide.edu.au
+    affiliation: >-
+      University of Adelaide
+  - given-names: Boyd
+    family-names: Tarlinton
+    email: boyd.tarlinton@daf.qld.gov.au
+    affiliation: >-
+      Queensland Department of Agriculture and Fisheries
