@@ -15,7 +15,9 @@ ssc install coefplot
 
 
 
-*** Table 2 ***
+
+*************************
+*** Table 2 with variations to included observations***
 
 
 *TABLE 2  Without Eduyear controls and increased sample by observations with missing eduyear variable
@@ -38,20 +40,20 @@ outreg2 using table_2rep, tex append dec(2) sortvar(c.famineseverity#c.born4960 
 reghdfe lexpen_agri c.famineseverity#c.born4954 c.famineseverity#c.born5560  male minor term  c.male#c.born4960 c.minor#c.born4960 c.age#c.born4960 c.lgdp1998#i.year c.lpopulation1998#i.year c.lexpenditure1998#i.year c.lrevenue1998#i.year, absorb(i.county_code i.year i.age i.htcode i.birthyr) vce(cl county_code)
 outreg2 using table_2rep, tex append dec(2) sortvar(c.famineseverity#c.born4960 c.famineseverity#c.born4954 c.famineseverity#c.born5560) addstat(Number of work counties, `e(N_clust)', Adjusted R-squared, `e(r2_a)', Within R-squared, `e(r2_within)')
 
-*column5:  Full sample with cps controls only including observations where eduyear is NA shows substantially smaller coefficient and statistical insignifance. 
+*column 5 except eduyear is dropped as control and sample includes missing eduyear observations. Substantially smaller coefficient and statistical insignifance. 
 reghdfe lexpen_secu c.famineseverity#c.born4960  male minor term  c.male#c.born4960 c.minor#c.born4960 c.age#c.born4960  , absorb(i.county_code i.year i.age i.htcode i.birthyr) vce(cl county_code)
 outreg2 using table_2rep, tex append dec(2) sortvar(c.famineseverity#c.born4960 c.famineseverity#c.born4954 c.famineseverity#c.born5560) addstat(Number of work counties, `e(N_clust)', Adjusted R-squared, `e(r2_a)', Within R-squared, `e(r2_within)')
 
 
-*Column 6: Full sample with cps and county controls including observations where eduyear is NA shows substantially smaller coefficient and statistical insignifance.
+*Column 6 except eduyear is dropped as control and sample includes missing eduyear observations. Substantially smaller coefficient and statistical insignifance. 
 reghdfe lexpen_secu c.famineseverity#c.born4960  male minor term  c.male#c.born4960 c.minor#c.born4960 c.age#c.born4960 c.lgdp1998#i.year c.lpopulation1998#i.year c.lexpenditure1998#i.year c.lrevenue1998#i.year , absorb(i.county_code i.year i.age i.htcode i.birthyr) vce(cl county_code)
 outreg2 using table_2rep, tex append dec(2) sortvar(c.famineseverity#c.born4960 c.famineseverity#c.born4954 c.famineseverity#c.born5560) addstat(Number of work counties, `e(N_clust)', Adjusted R-squared, `e(r2_a)', Within R-squared, `e(r2_within)')
 
-*column7:  Full sample with cps controls only including observations where eduyear is NA shows substantially smaller coefficient but statistically still significant
+*column 7 except eduyear is dropped as control and sample includes missing eduyear observations. Substantially smaller coefficient for 55-60 birth cohort but statistically still significant
 reghdfe lexpen_secu  c.famineseverity#c.born4954 c.famineseverity#c.born5560 male minor term  c.male#c.born4960 c.minor#c.born4960 c.age#c.born4960  , absorb(i.county_code i.year i.age i.htcode i.birthyr) vce(cl county_code)
 outreg2 using table_2rep, tex append dec(2) sortvar(c.famineseverity#c.born4960 c.famineseverity#c.born4954 c.famineseverity#c.born5560) addstat(Number of work counties, `e(N_clust)', Adjusted R-squared, `e(r2_a)', Within R-squared, `e(r2_within)')
 
-*column8:  Full sample with cps controls only including observations where eduyear is NA shows substantially smaller magnitude and not statistically significant
+*column 8 except eduyear is dropped as control and sample includes missing eduyear observations. Substantially smaller coefficient and statistically insignificant
 reghdfe lexpen_secu  c.famineseverity#c.born4954 c.famineseverity#c.born5560 male minor term  c.male#c.born4960 c.minor#c.born4960 c.age#c.born4960 c.lgdp1998#i.year c.lpopulation1998#i.year c.lexpenditure1998#i.year c.lrevenue1998#i.year , absorb(i.county_code i.year i.age i.htcode i.birthyr) vce(cl county_code)
 outreg2 using table_2rep, tex append dec(2) sortvar(c.famineseverity#c.born4960 c.famineseverity#c.born4954 c.famineseverity#c.born5560) addstat(Number of work counties, `e(N_clust)', Adjusted R-squared, `e(r2_a)', Within R-squared, `e(r2_within)')
 
@@ -64,27 +66,22 @@ outreg2 using table_2rep, tex append dec(2) sortvar(c.famineseverity#c.born4960 
 
 *column5:  Smaller sample of countries with agricultural expenditure only: effect is smaller and statistically not significant:    Difference in effect coefficient magnitude and significance indicates that observations where agricultural expenditure is not available drive substantial part of the baseline effect on social scurity expenditure 
 reghdfe lexpen_secu c.famineseverity#c.born4960 eduyear male minor term c.eduyear#c.born4960 c.male#c.born4960 c.minor#c.born4960 c.age#c.born4960  if lexpen_agri !=. , absorb(i.county_code i.year i.age i.htcode i.birthyr) vce(cl county_code)
-
 outreg2 using table_2sample, tex replace dec(2) keep(c.famineseverity#c.born4960 c.famineseverity#c.born4954 c.famineseverity#c.born5560) addstat(Number of work counties, `e(N_clust)', Adjusted R-squared, `e(r2_a)', Within R-squared, `e(r2_within)')
 
 
 *column6:  Smaller sample of countries with agricultural expenditure only: effect is smaller and statistically not significant: 
 reghdfe lexpen_secu c.famineseverity#c.born4960  eduyear male minor term c.eduyear#c.born4960 c.male#c.born4960 c.minor#c.born4960 c.age#c.born4960 c.lgdp1998#i.year c.lpopulation1998#i.year c.lexpenditure1998#i.year c.lrevenue1998#i.year  if lexpen_agri !=., absorb(i.county_code i.year i.age i.htcode i.birthyr) vce(cl county_code)
-
 outreg2 using table_2sample, tex append dec(2) keep(c.famineseverity#c.born4960 c.famineseverity#c.born4954 c.famineseverity#c.born5560) addstat(Number of work counties, `e(N_clust)', Adjusted R-squared, `e(r2_a)', Within R-squared, `e(r2_within)')
 
 
 *column7:  Smaller sample of countries with agricultural expenditure only: 49 to 54 birth cohort effect is negative , sizeable and statistically significant, 55 to 60 cohort is slightly smaller and statistically significant   
 reghdfe lexpen_secu c.famineseverity#c.born4954 c.famineseverity#c.born5560 eduyear male minor term c.eduyear#c.born4960 c.male#c.born4960 c.minor#c.born4960 c.age#c.born4960  if lexpen_agri !=. , absorb(i.county_code i.year i.age i.htcode i.birthyr) vce(cl county_code)
-
 outreg2 using table_2sample, tex append dec(2) keep(c.famineseverity#c.born4960 c.famineseverity#c.born4954 c.famineseverity#c.born5560) addstat(Number of work counties, `e(N_clust)', Adjusted R-squared, `e(r2_a)', Within R-squared, `e(r2_within)')
 
 
 *column8:  Smaller sample of countries with agricultural expenditure only: 49 to 54 birth cohort effect is   negative , sizeable and statistically weakly significant, 55 to 60 cohort is slightly smaller and statistically not significant   
 
 reghdfe lexpen_secu c.famineseverity#c.born4954 c.famineseverity#c.born5560 eduyear male minor term c.eduyear#c.born4960 c.male#c.born4960 c.minor#c.born4960 c.age#c.born4960 c.lgdp1998#i.year c.lpopulation1998#i.year c.lexpenditure1998#i.year c.lrevenue1998#i.year if lexpen_agri !=. , absorb(i.county_code i.year i.age i.htcode i.birthyr) vce(cl county_code)
-
-
 outreg2 using table_2sample, tex append dec(2) keep(c.famineseverity#c.born4960 c.famineseverity#c.born4954 c.famineseverity#c.born5560) addstat(Number of work counties, `e(N_clust)', Adjusted R-squared, `e(r2_a)', Within R-squared, `e(r2_within)')
 
  
@@ -92,7 +89,7 @@ outreg2 using table_2sample, tex append dec(2) keep(c.famineseverity#c.born4960 
 
 
 **************************************************
-
+***Coding error 
 
 *TABLE C5
 
@@ -112,7 +109,12 @@ lincom _b[c.famineseverity#c.born4960#c.diffcity] + _b[c.famineseverity#c.born49
 outreg2 using table_c5rep, tex append dec(2) keep(c.famineseverity#c.born4960 c.famineseverity#c.born4960#c.diffcity) addstat(Within R-squared, `e(r2_within)') 
 
 ***********************
+************************
 
+
+
+*************************************
+******Specifications used to explore the issue surrounding observations included in the estimation samples
 
 *check if taking out eduyear control has noticeable effect on the base specification
 
@@ -195,11 +197,4 @@ reghdfe lexpen_agri c.famineseverity#c.born4960 term  c.term#c.born4960 , absorb
 
 *education length noticeably increase impact
 reghdfe lexpen_agri c.famineseverity#c.born4960 eduyear  c.eduyear#c.born4960 , absorb(i.county_code i.year i.age i.htcode i.birthyr) vce(cl county_code)
-
-
-
-
-
-
-
 
