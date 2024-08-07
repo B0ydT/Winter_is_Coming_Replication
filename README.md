@@ -2,12 +2,14 @@
 
 ### Authors: Farida Akhtar, David Kreitmeir, Luke Newman, Florain Pleckl, Boyd Tarlinton
 
-This repository includes scripts used in our reproducibilty analysis of *Winter 
+This repository includes scripts used in our reproducibility analysis of *Winter 
 is Coming: Early-Life Experiences and Politicians’ Decisions* by Guo et al. 
 (2023).
 
-A Stata replication script is provided. Please follow the instructions in the 
-script.
+Two Stata replication packages / zipped folders are provided.
+"Stata Computational Replication" is the original replication package provided by the paper authors used to conduct the direct replication of the results reported in the paper. The only modification was the path used to load the data. 
+"Stata Robustness Replication" is the original replication package with the added script "Robustness Replication - Codes for Replication.do". This script contains the code used to conduct the robustness replications described in the report. The script makes use of the data files provided in the original replication package. 
+The Robustness Replication script is also directly provided and can be used in conjunction with the data files provided in the replication package by the original authors. 
 
 An R replication script is provided for the recreate reproducibility section.
 The packages used during this replication can be installed by running 
