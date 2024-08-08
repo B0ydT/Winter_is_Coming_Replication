@@ -46,15 +46,6 @@ data_1 |>
   summarise(mean = mean(value),
             obs = n())
 
-# Summary stats ----------------------------------------------------------------
-
-# htcode is hukou (county of birth)
-data_1 <- data_1 %>%
-  mutate(birthhome = if_else(htcode==county_code, 
-                             1, 
-                             0))
-sum(data_1$birthhome - data_1$homecounty, na.rm = T)
-
 # Table 2 ----------------------------------------------------------------------
 
 table2_1 <- feols(lexpen_agri ~ I(famineseverity*born4960) + eduyear + male + 
@@ -84,15 +75,6 @@ table2_1_1 <- feols(lexpen_agri ~ I(famineseverity*born4960) + male + minor +
                       htcode,
                     data = data_1, 
                     fixef.rm = "singleton")
-
-# diagnostics (dropped obs are significantly different, kills effect)
-lm(famineseverity ~ is.na(eduyear), data=data_1) %>% summary()
-lm(born4960 ~ is.na(eduyear), data=data_1) %>% summary()
-lm(birthyr ~ is.na(eduyear), data=data_1) %>% summary()
-lm(term ~ is.na(eduyear), data=data_1) %>% summary()
-lm(lpopulation ~ is.na(eduyear), data=data_1) %>% summary()
-lm(lgdp ~ is.na(eduyear), data=data_1) %>% summary()
-lm(lrevenue_industry ~ is.na(eduyear), data=data_1) %>% summary()
 
 table2_3 <- feols(lexpen_agri ~ I(famineseverity*born4954) + eduyear + male + 
                     minor + term + I(eduyear*born4954) + I(male*born4954) + 
