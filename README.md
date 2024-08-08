@@ -25,7 +25,7 @@ The packages used during this replication can be installed by running
 replication resources must be placed in the working directory prior to running 
 the script.
 
-### Citations:
+### Citations
 
 Guo, S., Gao, N. and Liang, P.: 2023a, Winter is Coming: Early-life Experiences
 and Politicians’ Decisions, The Economic Journal 134(657), 295–321.
