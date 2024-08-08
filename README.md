@@ -7,17 +7,7 @@ is Coming: Early-Life Experiences and Politicians’ Decisions* by Guo et al.
 (2023a) and contains code and data from the replication package (Guo et al., 
 2023b).
 
-Two Stata replication packages / zipped folders are provided. "Stata 
-Computational Replication" is the original replication package provided by the 
-paper authors used to conduct the direct replication of the results reported in 
-the paper. The only modification was the path used to load the data. "Stata 
-Robustness Replication" is the original replication package with the added 
-script "Robustness Replication - Codes for Replication.do". This script 
-contains the code used to conduct the robustness replications described in the 
-report. The script makes use of the data files provided in the original 
-replication package. The Robustness Replication script is also directly 
-provided and can be used in conjunction with the data files provided in 
-the replication package by the original authors.
+There are two Stata Do-files with replication scripts. The file "Robustness Replication - Replication Code" contains the code for the results of our robustness replication described in the report. The file utilizes the data file "Data for Replication.dta", which has been directly taken from the replication package Guo et al. (2023b) without any modification.  The file "Codes for Replication - p-values.do" is the original replication code file of Guo et al. (2023b) for the main results of the paper, including Table 2. The code for table 2 has been modified to display p-values rather than standard errors for comparison purposes, otherwise no changes have been made to the estimation code. Both replication code files have modified pathways for the location of the data set file as well as the folder for results. 
 
 An R replication script is provided for the recreate reproducibility section.
 The packages used during this replication can be installed by running 
