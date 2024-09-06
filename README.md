@@ -1,5 +1,10 @@
 ## Scripts for *A comment on* Winter is Coming: Early-Life Experiences and Politicans’ Decisions
 
+<!-- badges: start -->
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](LICENSE.md)
+[![DOI](https://zenodo.org/badge/811350653.svg)](https://zenodo.org/doi/10.5281/zenodo.13710455)
+<!-- badges: end -->
+
 ### Authors: Farida Akhtar, David Kreitmeir, Luke Newman, Florian Ploeckl, Boyd Tarlinton
 
 This repository includes scripts used in our reproducibility analysis of *Winter 
